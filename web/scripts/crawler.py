@@ -30,9 +30,9 @@ def run():
             title = item.find("font", class_="list_title").text
             title = title.strip()
             link = item.find("font", class_="list_title").parent.get("href")
+            link = link.replace("/zboard/", "")
             link = "https://www.ppomppu.co.kr/zboard/" + link
             # 링크에 따라 /zboard가 있는게 있음
-            link = link.replace("/zboard/", "")
             reply_count = item.find("span", class_="list_comment2").text
             reply_count = int(reply_count)
             up_count = item.find_all("td")[-2].text
